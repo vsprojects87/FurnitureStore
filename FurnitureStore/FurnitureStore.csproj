@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Users\hp\Downloads\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -116,6 +120,7 @@
     <Content Include="Store\Checkout.aspx" />
     <Content Include="Store\Contact.aspx" />
     <Content Include="Store\Default.aspx" />
+    <Content Include="Store\LoginOrSignup.aspx" />
     <Content Include="Store\Profile.aspx" />
     <Content Include="Store\Services.aspx" />
     <Content Include="Store\Shop.aspx" />
@@ -172,6 +177,13 @@
     </Compile>
     <Compile Include="Store\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\LoginOrSignup.aspx.cs">
+      <DependentUpon>LoginOrSignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\LoginOrSignup.aspx.designer.cs">
+      <DependentUpon>LoginOrSignup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

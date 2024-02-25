@@ -25,7 +25,7 @@
         </div>
     </div>
     <!-- End Hero Section -->
-    
+
 
     <!-- Start Contact Form -->
     <div class="untree_co-section">
@@ -88,34 +88,32 @@
                             </div>
                         </div>
 
-                        <form>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label class="text-black" for="fname">First name</label>
-                                        <input type="text" class="form-control" id="fname">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label class="text-black" for="lname">Last name</label>
-                                        <input type="text" class="form-control" id="lname">
-                                    </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="text-black" for="txtFName">First name</label>
+                                    <asp:TextBox ID="txtFName" class="form-control" runat="server" required></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="text-black" for="email">Email address</label>
-                                <input type="email" class="form-control" id="email">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="text-black" for="txtLName">Last name</label>
+                                    <asp:TextBox ID="txtLName" class="form-control" runat="server" required></asp:TextBox>
+                                </div>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-black" for="txtEmail">Email address</label>
+                            <asp:TextBox ID="txtEmail" class="form-control" runat="server" required></asp:TextBox>
+                        </div>
 
-                            <div class="form-group mb-5">
-                                <label class="text-black" for="message">Message</label>
-                                <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
-                            </div>
+                        <div class="form-group mb-5">
+                            <label class="text-black" for="txtMessage">Message</label>
+                            <asp:TextBox ID="txtMessage" class="form-control" runat="server" TextMode="MultiLine" Rows="5" required></asp:TextBox>
+                        </div>
 
-                            <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
-                        </form>
-
+                        <asp:Button ID="btnSendMessage" runat="server" CssClass="btn btn-primary-hover-outline" Text="Send Message" OnClick="btnSendMessage_Click"/>
+                        <asp:Label runat="server" CssClass="ml-5" Visible="false" Text="" ID="lblMessage"></asp:Label>
                     </div>
 
                 </div>
@@ -126,7 +124,7 @@
 
 
     </div>
-    
+
     <!-- End Contact Form -->
 
 
