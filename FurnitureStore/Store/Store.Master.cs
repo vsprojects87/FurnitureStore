@@ -11,15 +11,16 @@ namespace FurnitureStore.Store
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
 
         protected void lbtnProfile_Click(object sender, EventArgs e)
         {
-            if (Session["user"] == null)
+            if (Session["Name"] == null)
             {
-                Response.Redirect("../Store/Login.aspx");
+                Panel1.Visible = true;
+                // enable ajax if not log in
             }
             else
             {

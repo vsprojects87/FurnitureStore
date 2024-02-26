@@ -51,13 +51,13 @@ namespace FurnitureStore.Store
         protected global::System.Web.UI.WebControls.Panel PanelSignIn;
 
         /// <summary>
-        /// txtEmailorMobile control.
+        /// txtEmailOrMobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailorMobile;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailOrMobile;
 
         /// <summary>
         /// txtPassword control.

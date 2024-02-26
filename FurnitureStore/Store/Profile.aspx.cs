@@ -20,7 +20,7 @@ namespace FurnitureStore.Store
         DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] == null)
+            if (Session["UserId"] == null)
             {
                 Response.Redirect("../Store/Login.aspx");
             }
@@ -34,7 +34,7 @@ namespace FurnitureStore.Store
         {
             string query = "Select UserId, Name,Email,Mobile, Address, PinCode from [User] where Username=@Username";
             cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Username", Session["user"]);
+            cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
             adapter = new SqlDataAdapter(cmd);
             dt = new DataTable();
             adapter.Fill(dt);
