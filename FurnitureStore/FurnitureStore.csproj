@@ -122,6 +122,7 @@
     <Content Include="Store\Default.aspx" />
     <Content Include="Store\LoginOrSignup.aspx" />
     <Content Include="Store\Profile.aspx" />
+    <Content Include="Store\ProfileUpdate.aspx" />
     <Content Include="Store\Services.aspx" />
     <Content Include="Store\Shop.aspx" />
     <Content Include="Store\ThankYou.aspx" />
@@ -191,6 +192,13 @@
     </Compile>
     <Compile Include="Store\Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\ProfileUpdate.aspx.cs">
+      <DependentUpon>ProfileUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\ProfileUpdate.aspx.designer.cs">
+      <DependentUpon>ProfileUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>

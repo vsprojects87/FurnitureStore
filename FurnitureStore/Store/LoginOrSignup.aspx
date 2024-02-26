@@ -18,12 +18,7 @@
     <link href="../Assets/css/tiny-slider.css" rel="stylesheet" />
     <link href="../Assets/css/style.css" rel="stylesheet" />
     <title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
-    <script type="text/javascript">
-        function closePopupOnForm1() {
-            // Assuming 'opener' is the reference to the parent window
-            opener.closePopup();
-        }
-    </script>
+
 </head>
 <body style="background-color:rgba(255, 255, 255,0.6); ">
     <form id="form1" runat="server">
@@ -55,7 +50,7 @@
                                     <asp:TextBox ID="txtPassword" class="form-control" runat="server" required></asp:TextBox>
                                 </div>
 
-                                <asp:Button ID="btnLogIn" runat="server" CssClass="btn btn-primary-hover-outline" Text="Sign In" OnClick="btnLogIn_Click" OnClientClick="closePopupOnForm1(); return false;"/>
+                                <asp:Button ID="btnLogIn" runat="server" CssClass="btn btn-primary-hover-outline" Text="Sign In" OnClick="btnLogIn_Click" OnClientClick="closeCurrentForm(); return false;"/>
 
                                 <asp:Label runat="server" CssClass="ml-5" Visible="false" Text="" ID="lblMessage"></asp:Label>
                             </div>

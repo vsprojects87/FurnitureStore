@@ -32,7 +32,7 @@ namespace FurnitureStore.Store
 
         private void showUserProfile()
         {
-            string query = "Select UserId, Name,Email,Mobile, Address, PinCode from [User] where Username=@Username";
+            string query = "Select UserId, Name,Email,Mobile, Address, PinCode from [User] where UserId=@UserId";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
             adapter = new SqlDataAdapter(cmd);
@@ -49,6 +49,48 @@ namespace FurnitureStore.Store
             }
         }
 
+        protected void dlProfile_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "EditUserProfile")
+            {
+                Response.Redirect("ProfileUpdate.aspx?id=" + e.CommandArgument.ToString());
+            }
+            if(e.CommandName == "LogOut")
+            {
+                Session.Abandon();
+                Response.Redirect("../Store/Default.aspx");
+            }
+        }
 
+        protected void btnDeleteProfile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+                cmd = new SqlCommand("delete from [User] where UserId=@p1", con);
+                cmd.Parameters.AddWithValue("@p1", Session["userId"].ToString());
+                int r = cmd.ExecuteNonQuery();
+                if (r > 0)
+                {
+                    Response.Write("<script>alert('Account Deleted Successfully');</script>");
+                    Session.Abandon();
+                    Response.Redirect("../Store/Default.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Try again Later, Something Went Wrong !');</script>");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

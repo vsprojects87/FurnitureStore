@@ -4,6 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <style>
+        .sofa-img {
+            display: none;
+        }
+    </style>
 
 
     <div class="container pt-5 pb-5">
@@ -20,9 +25,9 @@
                                         <img src="../Images/xxx.jpg" alt="UserPic" class="rounded-circle" width="150" />
                                         <div class="mt-3">
                                             <h4 class="text-capitalize"><%#Eval("Name") %></h4>
-                                            <p class="text-secondary mb-1">@<%#Eval("Username")%></p>
+                                            <p class="text-secondary mb-1">@<%#Eval("Name")%></p>
                                             <p class="text-muted font-size-sm text-capitalize">
-                                                <i class="fas da-map-marker-alt"></i><%#Eval("State") %>
+                                                <i class="fas da-map-marker-alt"></i><%#Eval("Address") %>
                                             </p>
                                         </div>
                                     </div>
@@ -70,18 +75,14 @@
                                     </div>
                                     <hr />
                                     <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Resume Upload</h6>
+                                        <div class="col-sm-4">
+                                            <asp:Button ID="btnEditProfile" runat="server" Text="Edit" CssClass="button button-contactForm boxed-btn" CommandName="EditUserProfile" CommandArgument=' <%#Eval("UserId") %> ' />
                                         </div>
-                                        <div class="col-sm-9 text-secondary text-capitalize">
-                                            <%#Eval("Resume") == DBNull.Value ? "Not Uploaded" : "Uploaded" %>
-                                            <%--if we have uploaded the resume then it will return uploaded otherwise will display not uploaded--%>
+                                        <div class="col-sm-4">
+                                            <asp:Button ID="btnLogout" runat="server" Text="Log Out" CssClass="button button-contactForm boxed-btn" CommandName="LogOut" CommandArgument=' <%#Eval("UserId") %> ' />
                                         </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="button button-contactForm boxed-btn" CommandName="EditUserProfile" CommandArgument=' <%#Eval("UserId") %> ' />
+                                        <div class="col-sm-4">
+                                            <asp:Button ID="btnDeleteProfile" runat="server" Text="Delete Account" CssClass="button button-contactForm boxed-btn" OnClick="btnDeleteProfile_Click"/>
                                         </div>
                                     </div>
 

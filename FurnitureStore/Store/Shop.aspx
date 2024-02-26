@@ -6,7 +6,7 @@
 
 
 
-<%--    <!-- Start Hero Section -->
+    <%--    <!-- Start Hero Section -->
     <div class="hero">
         <div class="container">
             <div class="row justify-content-between">
@@ -21,8 +21,6 @@
         </div>
     </div>
     <!-- End Hero Section -->--%>
-
-
 
     <div class="untree_co-section product-section before-footer-section">
         <div class="container">
@@ -39,14 +37,13 @@
                                 <img src="../Assets/images/product-3.png" class="img-fluid product-thumbnail">
                                 <h3 class="product-title"><%#Eval("ProductName") %></h3>
                                 <strong class="product-price"><%#Eval("ProductPrice") %></strong>
-
                                 <span class="icon-cross">
                                     <img src="../Assets/images/cross.svg" class="img-fluid">
+                                    <asp:LinkButton CssClass="text-center" ID="lbAddToCart" runat="server" OnClick="lbAddToCart_Click" CommandArgument='<%#Eval("ProductId") %>'>Add to Cart</asp:LinkButton>
                                 </span>
                             </a>
                         </div>
                         <!-- End Column 1 -->
-
                     </ItemTemplate>
                 </asp:DataList>
             </div>
