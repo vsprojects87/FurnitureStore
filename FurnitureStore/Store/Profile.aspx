@@ -82,7 +82,7 @@
                                             <asp:Button ID="btnLogout" runat="server" Text="Log Out" CssClass="button button-contactForm boxed-btn" CommandName="LogOut" CommandArgument=' <%#Eval("UserId") %> ' />
                                         </div>
                                         <div class="col-sm-4">
-                                            <asp:Button ID="btnDeleteProfile" runat="server" Text="Delete Account" CssClass="button button-contactForm boxed-btn" OnClick="btnDeleteProfile_Click"/>
+                                            <asp:Button ID="btnDeleteProfile" runat="server" Text="Delete Account" CssClass="button button-contactForm boxed-btn" OnClick="btnDeleteProfile_Click" />
                                         </div>
                                     </div>
 
@@ -95,9 +95,87 @@
                 </ItemTemplate>
             </asp:DataList>
 
+            <%--label for message--%>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="mb-35">
+                        <asp:Label ID="lblMessage" CssClass="text-center" runat="server" Text=""></asp:Label>
+                    </div>
+                </div>
+            </div>
+
+
+            <%--Order area--%>
+
+
+
+
+            <asp:DataList ID="dlOrder" runat="server">
+
+                <ItemTemplate>
+
+                    <div class="single-job-items mb-30">
+
+                        <div class="job-items">
+
+                            <div class="company-img">
+
+                                <a>
+
+                                    <%--<img width="80" src="<%# GetImageUrl( Eval("CompanyImage")) %>" alt="">--%>
+                                    <img width="80" src="../<%#( Eval("ProductImage")) %>" alt="">
+                                </a>
+
+                            </div>
+
+                            <div class="job-tittle job-tittle2">
+
+                                <a <%--href="JobDetails.aspx?id=<%# Eval("JobId") %>"--%>>
+
+                                    <h5><%# Eval("PersonName") %></h5>
+
+                                </a>
+
+                                <ul>
+
+                                    <li><%# Eval("ProductName") %></li>
+
+                                    <li><i class="fas fa-map-marker-alt"></i><%# Eval("BillingAddress") %>, <%# Eval("PersonPinCode") %></li>
+
+                                    <li><%# Eval("OrderTotal") %></li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <div class="items-link items-link2 f-right">
+
+                            <a><%# Eval("PaymentMode") %></a>
+
+                            <span class="text-secondary">
+
+                                <i class="fas fa-clock pr-1"></i>
+
+                                <%# RelativeDate(Convert.ToDateTime(Eval("OrderDate"))) %>
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </ItemTemplate>
+
+            </asp:DataList>
+
 
         </div>
     </div>
+
+
 
 
 
