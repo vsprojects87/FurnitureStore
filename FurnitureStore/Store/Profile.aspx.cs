@@ -22,7 +22,7 @@ namespace FurnitureStore.Store
         {
             if (Session["UserId"] == null)
             {
-                Response.Redirect("../Store/Login.aspx");
+                Response.Redirect("../Store/LoginOrSignup.aspx");
             }
             if (!IsPostBack)
             {

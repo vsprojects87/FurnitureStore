@@ -28,6 +28,7 @@
                 <div class="col-md-6 mb-5 mb-md-0">
                     <h2 class="h3 mb-3 text-black">Billing Details</h2>
                     <div class="p-3 p-lg-5 border bg-white">
+
                         <div class="form-group">
                             <label for="c_country" class="text-black">Country <span class="text-danger">*</span></label>
                             <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-control">
@@ -49,12 +50,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <label for="txtCompany" class="text-black">Company Name </label>
-                                <asp:TextBox ID="txtCompany" CssClass="form-control" runat="server"></asp:TextBox>
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <div class="col-md-12">
@@ -89,104 +84,79 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="c_create_account" class="text-black" data-bs-toggle="collapse" href="#create_an_account" role="button" aria-expanded="false" aria-controls="create_an_account">
-                                <input type="checkbox" value="1" id="c_create_account">
-                                Create an account?</label>
-                            <div class="collapse" id="create_an_account">
-                                <div class="py-2 mb-4">
-                                    <p class="mb-3">Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
-                                    <div class="form-group">
-                                        <label for="c_account_password" class="text-black">Account Password</label>
-                                        <input type="email" class="form-control" id="c_account_password" name="c_account_password" placeholder="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
 
                         <div class="form-group">
                             <label for="c_ship_different_address" class="text-black" data-bs-toggle="collapse" href="#ship_different_address" role="button" aria-expanded="false" aria-controls="ship_different_address">
-                                <input type="checkbox" value="1" id="c_ship_different_address">
-                                Ship To A Different Address?</label>
-                            <div class="collapse" id="ship_different_address">
-                                <div class="py-2">
+                                <asp:CheckBox ID="c_ship_different_address" Value="1" runat="server" Text=" Ship To A Different Address?" />
+                                <div class="collapse" id="ship_different_address">
+                                    <div class="py-2">
 
-                                    <div class="form-group">
-                                        <label for="c_diff_country" class="text-black">Country <span class="text-danger">*</span></label>
-                                        <asp:DropDownList ID="ddlCountry2" runat="server" CssClass="form-control">
-                                            <asp:ListItem Value="">Select Something</asp:ListItem>
-                                            <asp:ListItem Value="1">India</asp:ListItem>
-                                            <asp:ListItem Value="2">USA</asp:ListItem>
-                                            <asp:ListItem Value="3">Australia</asp:ListItem>
-                                            <asp:ListItem Value="3">Nepal</asp:ListItem>
-                                        </asp:DropDownList>
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="c_diff_country" class="text-black">Country <span class="text-danger">*</span></label>
+                                            <asp:DropDownList ID="ddlCountry2" runat="server" CssClass="form-control">
+                                                <asp:ListItem Value="">Select Something</asp:ListItem>
+                                                <asp:ListItem Value="1">India</asp:ListItem>
+                                                <asp:ListItem Value="2">USA</asp:ListItem>
+                                                <asp:ListItem Value="3">Australia</asp:ListItem>
+                                                <asp:ListItem Value="3">Nepal</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
 
+                                        <div class="form-group row">
+                                            <div class="col-md-6">
+                                                <label for="txtFirstNameOther" class="text-black">First Name <span class="text-danger">*</span></label>
+                                                <asp:TextBox ID="txtFirstNameOther" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="txtLastNameOther" class="text-black">Last Name <span class="text-danger">*</span></label>
+                                                <asp:TextBox ID="txtLastNameOther" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-md-6">
-                                            <label for="c_diff_fname" class="text-black">First Name <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="c_diff_fname" name="c_diff_fname">
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <label for="txtAddressOther1" class="text-black">Address <span class="text-danger">*</span></label>
+                                                <asp:TextBox ID="txtAddressOther1" CssClass="form-control" placeholder="Street address" runat="server"></asp:TextBox>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label for="c_diff_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="c_diff_lname" name="c_diff_lname">
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-md-12">
-                                            <label for="c_diff_companyname" class="text-black">Company Name </label>
-                                            <input type="text" class="form-control" id="c_diff_companyname" name="c_diff_companyname">
+                                        <div class="form-group mt-3">
+                                            <asp:TextBox ID="txtAddressOther2" Placeholder="Apartment, suite, unit etc. (optional)" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group row  mb-3">
-                                        <div class="col-md-12">
-                                            <label for="c_diff_address" class="text-black">Address <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="c_diff_address" name="c_diff_address" placeholder="Street address">
+                                        <div class="form-group row">
+                                            <div class="col-md-6">
+                                                <label for="txtStateOther" class="text-black">State<span class="text-danger">*</span></label>
+                                                <asp:TextBox ID="txtStateOther" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="txtPinCode" class="text-black">Posta / Zip <span class="text-danger">*</span></label>
+                                                <asp:TextBox ID="txtPinCodeOther" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
-                                    </div>
+                                        <div class="form-group row mb-5">
+                                            <div class="col-md-6">
+                                                <label for="txtEmailOther" class="text-black">Email Address <span class="text-danger">*</span></label>
+                                                <asp:TextBox ID="txtEmailOther" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="txtMobileOther" class="text-black">Phone <span class="text-danger">*</span></label>
+                                                <asp:TextBox ID="txtMobileOther" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-md-6">
-                                            <label for="c_diff_state_country" class="text-black">State / Country <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="c_diff_state_country" name="c_diff_state_country">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="c_diff_postal_zip" class="text-black">Posta / Zip <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="c_diff_postal_zip" name="c_diff_postal_zip">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row mb-5">
-                                        <div class="col-md-6">
-                                            <label for="c_diff_email_address" class="text-black">Email Address <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="c_diff_email_address" name="c_diff_email_address">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="c_diff_phone" class="text-black">Phone <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="c_diff_phone" name="c_diff_phone" placeholder="Phone Number">
-                                        </div>
                                     </div>
 
                                 </div>
-
-                            </div>
                         </div>
 
 
                     </div>
                 </div>
+
                 <div class="col-md-6">
-
-
-
                     <div class="row mb-5">
                         <div class="col-md-12">
                             <h2 class="h3 mb-3 text-black">Your Order</h2>
