@@ -11,6 +11,7 @@
     </style>
 
 
+
     <div class="container pt-5 pb-5">
         <div class="main-body">
 
@@ -95,87 +96,74 @@
                 </ItemTemplate>
             </asp:DataList>
 
-            <%--label for message--%>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="mb-35">
-                        <asp:Label ID="lblMessage" CssClass="text-center" runat="server" Text=""></asp:Label>
-                    </div>
-                </div>
-            </div>
-
-
-            <%--Order area--%>
-
-
-
-
-            <asp:DataList ID="dlOrder" runat="server">
-
-                <ItemTemplate>
-
-                    <div class="single-job-items mb-30">
-
-                        <div class="job-items">
-
-                            <div class="company-img">
-
-                                <a>
-
-                                    <%--<img width="80" src="<%# GetImageUrl( Eval("CompanyImage")) %>" alt="">--%>
-                                    <img width="80" src="../<%#( Eval("ProductImage")) %>" alt="">
-                                </a>
-
-                            </div>
-
-                            <div class="job-tittle job-tittle2">
-
-                                <a <%--href="JobDetails.aspx?id=<%# Eval("JobId") %>"--%>>
-
-                                    <h5><%# Eval("PersonName") %></h5>
-
-                                </a>
-
-                                <ul>
-
-                                    <li><%# Eval("ProductName") %></li>
-
-                                    <li><i class="fas fa-map-marker-alt"></i><%# Eval("BillingAddress") %>, <%# Eval("PersonPinCode") %></li>
-
-                                    <li><%# Eval("OrderTotal") %></li>
-
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                        <div class="items-link items-link2 f-right">
-
-                            <a><%# Eval("PaymentMode") %></a>
-
-                            <span class="text-secondary">
-
-                                <i class="fas fa-clock pr-1"></i>
-
-                                <%# RelativeDate(Convert.ToDateTime(Eval("OrderDate"))) %>
-
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </ItemTemplate>
-
-            </asp:DataList>
-
 
         </div>
+
+        <hr style="margin-top: 2em" />
     </div>
 
 
+    <%--label for message--%>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mb-35">
+                <asp:Label ID="lblMessage" CssClass="text-center" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-bottom: 3.5em">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Orders</h3>
+            </div>
+        </div>
+    </div>
+    <%--Order area--%>
+
+    
+    <asp:DataList ID="dlOrder" runat="server">
+        <ItemTemplate>
+            <div class="container mt-5 mb-5">
+                <div class="d-flex justify-content-center row">
+                    <div class="col-md-10">
+                        <div class="row p-2 bg-white border rounded mt-2">
+                            <div class="col-md-3 mt-1">
+                                <img class="img-fluid img-responsive rounded product-image" src="../<%#( Eval("ProductImage")) %>">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5><%# Eval("PersonName") %></h5>
+                                <div class="mt-1 mb-1 spec-1">
+                                    <h4><%# Eval("ProductName") %></h4>
+                                    <br>
+                                </div>
+
+                                <div class="mt-1 mb-1 spec-1">
+                                    <span class="dot"><%# Eval("OrderId") %></span><br>
+                                </div>
+
+                                <p class="text-justify text-truncate para mb-0">
+                                    <span><i class="fas fa-map-marker-alt"></i>&nbsp<%# Eval("BillingAddress") %>, <%# Eval("PersonPinCode") %></span><br>
+                                    <br>
+                                </p>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                       <h4 class="mr-1">RS.&nbsp&nbsp<%# Eval("OrderTotal") %></h4>
+                                </div>
+                                <h6 class="text-success"><%# Eval("PaymentMode") %></h6>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button"><%#Eval("OrderDate") %></button>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" type="button"><%# RelativeDate(Convert.ToDateTime(Eval("OrderDate"))) %></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ItemTemplate>
+    </asp:DataList>
 
 
 
