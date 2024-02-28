@@ -113,7 +113,7 @@
         </div>
     </div>
 
-    <div class="container" style="margin-bottom: 3.5em">
+    <div class="container" style="margin-bottom: 2em">
         <div class="row">
             <div class="col-lg-12">
                 <h3>Orders</h3>
@@ -122,40 +122,42 @@
     </div>
     <%--Order area--%>
 
-    
+
     <asp:DataList ID="dlOrder" runat="server">
         <ItemTemplate>
             <div class="container mt-5 mb-5">
                 <div class="d-flex justify-content-center row">
                     <div class="col-md-10">
-                        <div class="row p-2 bg-white border rounded mt-2">
+                        <div class="row p-2 bg-white border rounded mt-2 order-list" style="border-radius:1.5rem !important">
                             <div class="col-md-3 mt-1">
                                 <img class="img-fluid img-responsive rounded product-image" src="../<%#( Eval("ProductImage")) %>">
                             </div>
-                            <div class="col-md-6 mt-1">
-                                <h5><%# Eval("PersonName") %></h5>
+                            <div class="col-md-5 mt-3">
+                                <h3><%# Eval("PersonName") %></h3>
+                                <br />
                                 <div class="mt-1 mb-1 spec-1">
                                     <h4><%# Eval("ProductName") %></h4>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1">
+                                    <span class="dot">
+                                        <h5>Order Id #&nbsp<%# Eval("OrderId") %></h5>
+                                    </span>
                                     <br>
                                 </div>
 
-                                <div class="mt-1 mb-1 spec-1">
-                                    <span class="dot"><%# Eval("OrderId") %></span><br>
-                                </div>
-
-                                <p class="text-justify text-truncate para mb-0">
+                                <p class="text-justify text-truncate para mb-0" style="font-size: large">
                                     <span><i class="fas fa-map-marker-alt"></i>&nbsp<%# Eval("BillingAddress") %>, <%# Eval("PersonPinCode") %></span><br>
                                     <br>
                                 </p>
                             </div>
-                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                            <div class="align-items-center align-content-center col-md-4 border-left mt-3">
                                 <div class="d-flex flex-row align-items-center">
-                                       <h4 class="mr-1">RS.&nbsp&nbsp<%# Eval("OrderTotal") %></h4>
+                                    <h6 class="mr-1"><%#Eval("OrderDate") %></h6>
                                 </div>
-                                <h6 class="text-success"><%# Eval("PaymentMode") %></h6>
+                                <h6 class="text-success"><%# RelativeDate(Convert.ToDateTime(Eval("OrderDate"))) %></h6>
                                 <div class="d-flex flex-column mt-4">
-                                    <button class="btn btn-primary btn-sm" type="button"><%#Eval("OrderDate") %></button>
-                                    <button class="btn btn-outline-primary btn-sm mt-2" type="button"><%# RelativeDate(Convert.ToDateTime(Eval("OrderDate"))) %></button>
+                                    <button class="btn btn-primary btn-sm" type="button" style="font-size: 1.5em">RS.&nbsp&nbsp<%# Eval("OrderTotal") %></button>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" type="button" style="font-size: 1.3em"><%# Eval("PaymentMode") %></button>
                                 </div>
                             </div>
                         </div>
@@ -165,6 +167,20 @@
         </ItemTemplate>
     </asp:DataList>
 
+    <style>
+        .order-list {
+            -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.37);
+            -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.37);
+            box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.37);
+        }
 
+            .order-list:hover {
+                transition: transform ease 1s;
+                transform: scale(1.03);
+            }
+            .product-image{
+                max-height:50vw !important;
+            }
+    </style>
 
 </asp:Content>
