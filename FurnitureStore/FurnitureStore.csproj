@@ -74,6 +74,7 @@
     <Content Include="Admin\ContactList.aspx" />
     <Content Include="Admin\DashBoard.aspx" />
     <Content Include="Admin\NewProducts.aspx" />
+    <Content Include="Admin\Orders.aspx" />
     <Content Include="Admin\ProductList.aspx" />
     <Content Include="Admin\UserList.aspx" />
     <Content Include="Assets\css\bootstrap.min.css" />
@@ -160,6 +161,13 @@
     </Compile>
     <Compile Include="Admin\NewProducts.aspx.designer.cs">
       <DependentUpon>NewProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Orders.aspx.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Orders.aspx.designer.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ProductList.aspx.cs">
       <DependentUpon>ProductList.aspx</DependentUpon>
