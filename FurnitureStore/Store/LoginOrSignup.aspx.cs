@@ -97,7 +97,7 @@ namespace FurnitureStore.Store
                     if (username == txtEmailOrMobile.Text.Trim() && password == txtPassword.Text.Trim())
                     {
                         Session["admin"] = username;
-                        Response.Redirect("../Admin/Dashboard.aspx", false);
+                        Response.Redirect("../Admin/Dashboard.aspx");
                     }
                     else
                     {

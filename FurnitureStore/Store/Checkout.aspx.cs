@@ -26,8 +26,10 @@ namespace FurnitureStore.Store
             if (!IsPostBack)
             {
                 bindUserDetails();
+                bindCart();
             }
         }
+
 
         private void bindUserDetails()
         {
@@ -61,8 +63,25 @@ namespace FurnitureStore.Store
             string[] nameParts = fullName.Split(' ');
             string firstName = nameParts[0];
             string lastName = nameParts.Length > 1 ? nameParts[1] : string.Empty;
-            txtFirstName.Text=firstName;
-            txtLastName.Text=lastName;
+            txtFirstName.Text = firstName;
+            txtLastName.Text = lastName;
+            con.Close();
+        }
+
+
+        private void bindCart()
+        {
+            con.Open();
+            string query = "Select ProductName,Price from [Cart] where UserId=@UserId";
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@UserId", 1);
+            //cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
+            adapter = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            adapter.Fill(dt);
+            ddlCheckout.DataSource = dt;
+            ddlCheckout.DataBind();
+            con.Close();
         }
 
     }

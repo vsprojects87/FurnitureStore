@@ -20,12 +20,12 @@
     <title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
 
 </head>
-<body style="background-color:rgba(255, 255, 255,0.6); ">
+<body style="background-color: rgba(255, 255, 255,0.6);">
     <form id="form1" runat="server">
 
 
         <div class="untree_co-section">
-            <div class="container" style="margin-top:-4rem">
+            <div class="container" style="margin-top: -4rem">
 
                 <div class="block">
                     <div class="row justify-content-center text-center mb-3">
@@ -50,8 +50,8 @@
                                     <asp:TextBox ID="txtPassword" class="form-control" runat="server" required></asp:TextBox>
                                 </div>
 
-                                <asp:Button ID="btnLogIn" runat="server" CssClass="btn btn-primary-hover-outline" Text="Sign In" OnClick="btnLogIn_Click" OnClientClick="closeCurrentForm(); return false;"/>
-
+                                <asp:Button ID="btnLogIn" runat="server" CssClass="btn btn-primary-hover-outline" Text="Sign In" OnClick="btnLogIn_Click" />
+                                
                                 <asp:Label runat="server" CssClass="ml-5" Visible="false" Text="" ID="lblMessage"></asp:Label>
                             </div>
                         </asp:Panel>
@@ -121,7 +121,7 @@
 
                                     </div>
                                 </div>
-                                <asp:Button ID="btnSignUp" runat="server" CssClass="btn btn-primary-hover-outline" Text="Sign Up" OnClick="btnSignUp_Click"/>
+                                <asp:Button ID="btnSignUp" runat="server" CssClass="btn btn-primary-hover-outline" Text="Sign Up" OnClick="btnSignUp_Click" />
 
                             </div>
                         </asp:Panel>

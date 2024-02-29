@@ -71,7 +71,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\ContactList.aspx" />
     <Content Include="Admin\DashBoard.aspx" />
+    <Content Include="Admin\NewProducts.aspx" />
+    <Content Include="Admin\ProductList.aspx" />
+    <Content Include="Admin\UserList.aspx" />
     <Content Include="Assets\css\bootstrap.min.css" />
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\css\styles.css" />
@@ -136,12 +140,40 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ContactList.aspx.cs">
+      <DependentUpon>ContactList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ContactList.aspx.designer.cs">
+      <DependentUpon>ContactList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\DashBoard.aspx.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\DashBoard.aspx.designer.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\NewProducts.aspx.cs">
+      <DependentUpon>NewProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\NewProducts.aspx.designer.cs">
+      <DependentUpon>NewProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProductList.aspx.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProductList.aspx.designer.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Store\About.aspx.cs">
@@ -232,6 +264,32 @@
   <ItemGroup>
     <Content Include="Assets\scss\style.scss" />
     <Content Include="Admin\Admin.Master" />
+    <Content Include="Assets\scss\_apply-proces.scss" />
+    <Content Include="Assets\scss\_blog.scss" />
+    <Content Include="Assets\scss\_blog_page.scss" />
+    <Content Include="Assets\scss\_bradcam.scss" />
+    <Content Include="Assets\scss\_color.scss" />
+    <Content Include="Assets\scss\_common.scss" />
+    <Content Include="Assets\scss\_contact.scss" />
+    <Content Include="Assets\scss\_cv-online.scss" />
+    <Content Include="Assets\scss\_elements.scss" />
+    <Content Include="Assets\scss\_extend.scss" />
+    <Content Include="Assets\scss\_featured-Jobs.scss" />
+    <Content Include="Assets\scss\_footer.scss" />
+    <Content Include="Assets\scss\_h1-hero.scss" />
+    <Content Include="Assets\scss\_headerMenu.scss" />
+    <Content Include="Assets\scss\_job_details.scss" />
+    <Content Include="Assets\scss\_job_listing.scss" />
+    <Content Include="Assets\scss\_mixins.scss" />
+    <Content Include="Assets\scss\_overlay.scss" />
+    <Content Include="Assets\scss\_pagination.scss" />
+    <Content Include="Assets\scss\_recent.scss" />
+    <Content Include="Assets\scss\_services.scss" />
+    <Content Include="Assets\scss\_services_section.scss" />
+    <Content Include="Assets\scss\_support-company.scss" />
+    <Content Include="Assets\scss\_team.scss" />
+    <Content Include="Assets\scss\_testimonial.scss" />
+    <Content Include="Assets\scss\_variables.scss" />
     <None Include="packages.config" />
     <Content Include="Store\Store.Master" />
     <None Include="Web.Debug.config">
