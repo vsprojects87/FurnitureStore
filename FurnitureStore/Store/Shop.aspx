@@ -34,7 +34,7 @@
                         <div class="col-12 col-md-4 col-lg-10 mb-5 align-content-lg-center">
                             <%--changes : from col-lg-3 to col-lg-10--%>
                             <a class="product-item" href="#">
-                                <img src="../Assets/images/product-3.png" class="img-fluid product-thumbnail">
+                                <img src="../<%#(Eval("ProductImage")) %>" class="img-fluid product-thumbnail">
                                 <h3 class="product-title"><%#Eval("ProductName") %></h3>
                                 <strong class="product-price"><%#Eval("ProductPrice") %></strong>
                                 <span class="icon-cross">

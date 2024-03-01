@@ -30,7 +30,7 @@
                             <span class="fs-5 d-none d-sm-inline">Admin</span>
                         </a>
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                            
+
                             <li>
                                 <a href="../Admin/Dashboard.aspx" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                     <i class="fs-4 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
@@ -56,9 +56,9 @@
                         </ul>
                         <hr>
                         <div class="dropdown pb-4">
-                            <a href="#" class="d-flex align-items-center text-white text-decoration-none" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-box-arrow-right fs-2"></i>
-                                <span class="d-none d-sm-inline mx-1"><b>LogOut</b></span>
+                            <a href="#" class="d-flex align-items-center text-white text-decoration-none">
+                               <asp:LinkButton ID="LinkButton1" Tesxt="<i class='bi bi-box-arrow-right fs-2'></i>" runat="server" OnClick="LinkButton1_Click"><span class="d-none d-sm-inline mx-1">LogOut</span></asp:LinkButton>
+                                
                             </a>
                         </div>
                     </div>

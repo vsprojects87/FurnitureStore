@@ -22,7 +22,7 @@ namespace FurnitureStore.Store
         SqlDataAdapter adapter;
         DataTable dt;
         string query;
-        string ProductPrice, ProductName = string.Empty;
+        string ProductPrice, ProductName, ProductImage = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -34,7 +34,7 @@ namespace FurnitureStore.Store
         {
             if (dt == null)
             {
-                string query = @"Select ProductId, ProductName, ProductPrice, ProductDescription from Products";
+                string query = @"Select ProductId, ProductName, ProductPrice, ProductDescription, ProductImage from Products";
                 cmd = new SqlCommand(query, con);
                 adapter = new SqlDataAdapter(cmd);
                 dt = new DataTable();
@@ -75,6 +75,7 @@ namespace FurnitureStore.Store
                     {
                         ProductName = reader["ProductName"].ToString();
                         ProductPrice = reader["ProductPrice"].ToString();
+                        ProductImage = reader["ProductImage"].ToString();
                     }
                 }
                 reader.Close();
@@ -83,7 +84,7 @@ namespace FurnitureStore.Store
                 cmd.Parameters.AddWithValue("@ProductId", Session["productId"]);
                 cmd.Parameters.AddWithValue("@ProductName", ProductName);
                 cmd.Parameters.AddWithValue("@Price", ProductPrice);
-                //cmd.Parameters.AddWithValue("@ProductImage",);
+                cmd.Parameters.AddWithValue("@ProductImage", ProductImage);
 
                 int r = cmd.ExecuteNonQuery();
                 if (r > 0)

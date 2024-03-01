@@ -164,6 +164,7 @@
 
                                 <table class="table site-block-order-table">
                                     <thead>
+                                        <th>Preview</th>
                                         <th>Product</th>
                                         <th>Total</th>
                                     </thead>
@@ -173,6 +174,8 @@
                                     <ItemTemplate>
                                         <table class="table site-block-order-table">
                                             <tr>
+                                                <td>
+                                                    <img class="img-fluid rounded" src="../<%#(Eval("ProductImage")) %>" /></td>
                                                 <td><%#Eval("ProductName") %> <strong class="mx-2">x</strong> 1</td>
                                                 <td><%#Eval("Price") %></td>
                                             </tr>
@@ -225,7 +228,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='thankyou.html'">Place Order</button>
+                                    <asp:Button ID="Button1" CssClass="btn btn-black btn-lg py-3 btn-block" runat="server" Text="Place Order" OnClick="Button1_Click"/>
                                 </div>
 
                             </div>
@@ -238,6 +241,6 @@
         </div>
     </div>
 
-
+    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
 
 </asp:Content>

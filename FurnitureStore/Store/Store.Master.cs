@@ -19,8 +19,7 @@ namespace FurnitureStore.Store
         {
             if (Session["Name"] == null)
             {
-                Panel1.Visible = true;
-                // enable ajax if not log in
+                Response.Redirect("LoginOrSignup.aspx");
             }
             else
             {

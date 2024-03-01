@@ -14,10 +14,11 @@ namespace FurnitureStore.Admin
 
         }
 
-        protected void btnLogOut_Click(object sender, EventArgs e)
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("../User/LoginOrSignup.aspx");
+            Response.Redirect("../Store/LoginOrSignup.aspx");
         }
     }
 }

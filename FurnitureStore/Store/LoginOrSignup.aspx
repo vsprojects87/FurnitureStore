@@ -1,27 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginOrSignup.aspx.cs" Inherits="FurnitureStore.Store.LoginOrSignup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Store/Store.Master" AutoEventWireup="true" CodeBehind="LoginOrSignup.aspx.cs" Inherits="FurnitureStore.Store.LoginOrSignup1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="author" content="Untree.co" />
-    <link rel="shortcut icon" href="../Assets/favicon.png" />
-
-    <meta name="description" content="" />
-    <meta name="keywords" content="bootstrap, bootstrap4" />
-
-    <!-- Bootstrap CSS -->
-    <link href="../Assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
-    <link href="../Assets/css/tiny-slider.css" rel="stylesheet" />
-    <link href="../Assets/css/style.css" rel="stylesheet" />
-    <title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
-
-</head>
-<body style="background-color: rgba(255, 255, 255,0.6);">
-    <form id="form1" runat="server">
+        <style>
+        body{
+            background-color:rgb(27 27 27);
+        }
+        .font-light{
+            color:white;
+        }
+    </style>
 
 
         <div class="untree_co-section">
@@ -42,11 +32,11 @@
                             <div class="col-md-3 col-sm-6 col-lg-3 mx-auto">
 
                                 <div class="form-group">
-                                    <label class="text-black" for="txtEmailOrMobile">Email/ Mobile</label>
+                                    <label class="font-light" for="txtEmailOrMobile">Email/ Mobile</label>
                                     <asp:TextBox ID="txtEmailOrMobile" class="form-control" runat="server" required></asp:TextBox>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="text-black" for="txtPassword">Password</label>
+                                    <label class="font-light" for="txtPassword">Password</label>
                                     <asp:TextBox ID="txtPassword" class="form-control" runat="server" required></asp:TextBox>
                                 </div>
 
@@ -67,13 +57,13 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label class="text-black" for="txtName">Name</label>
+                                            <label class="font-light" for="txtName">Name</label>
                                             <asp:TextBox ID="txtName" class="form-control" runat="server" required></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label class="text-black" for="txtEmail">Email</label>
+                                            <label class="font-light" for="txtEmail">Email</label>
                                             <asp:TextBox ID="txtEmail" class="form-control" runat="server" required></asp:TextBox>
                                         </div>
                                     </div>
@@ -81,7 +71,7 @@
 
 
                                 <div class="form-group">
-                                    <label class="text-black" for="txtAddress">Address</label>
+                                    <label class="font-light" for="txtAddress">Address</label>
                                     <asp:TextBox ID="txtAddress" class="form-control" runat="server" TextMode="MultiLine" Rows="2" required></asp:TextBox>
                                 </div>
 
@@ -90,7 +80,7 @@
                                     <div class="col-6">
 
                                         <div class="form-group">
-                                            <label class="text-black" for="txtMobile">Mobile</label>
+                                            <label class="font-light" for="txtMobile">Mobile</label>
                                             <asp:TextBox ID="txtMobile" class="form-control" runat="server" required></asp:TextBox>
                                         </div>
                                     </div>
@@ -98,7 +88,7 @@
                                     <div class="col-6">
 
                                         <div class="form-group">
-                                            <label class="text-black" for="txtPinCode">Pin Code</label>
+                                            <label class="font-light" for="txtPinCode">Pin Code</label>
                                             <asp:TextBox ID="txtPinCode" class="form-control" runat="server" required></asp:TextBox>
                                         </div>
                                     </div>
@@ -108,14 +98,14 @@
                                     <div class="col-6">
 
                                         <div class="form-group">
-                                            <label class="text-black" for="txtPassword">Password</label>
+                                            <label class="font-light" for="txtPassword">Password</label>
                                             <asp:TextBox ID="txtPassword2" class="form-control" runat="server" required></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-6">
 
                                         <div class="form-group">
-                                            <label class="text-black" for="txtConformPassword">Confirm Password</label>
+                                            <label class="font-light" for="txtConformPassword">Confirm Password</label>
                                             <asp:TextBox ID="txtConformPassword" class="form-control" runat="server" required></asp:TextBox>
                                         </div>
 
@@ -132,12 +122,7 @@
 
             </div>
         </div>
-    </form>
-
-    <script src="../Assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../Assets/js/tiny-slider.js"></script>
-    <script src="../Assets/js/custom.js"></script>
 
 
-</body>
-</html>
+
+</asp:Content>

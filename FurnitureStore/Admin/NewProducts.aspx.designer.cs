@@ -33,22 +33,22 @@ namespace FurnitureStore.Admin
         protected global::System.Web.UI.WebControls.HyperLink linkBack;
 
         /// <summary>
-        /// txtJobTitle control.
+        /// txtProductName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtJobTitle;
+        protected global::System.Web.UI.WebControls.TextBox txtProductName;
 
         /// <summary>
-        /// txtNoOfPost control.
+        /// txtProductPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNoOfPost;
+        protected global::System.Web.UI.WebControls.TextBox txtProductPrice;
 
         /// <summary>
         /// txtDescription control.
@@ -60,22 +60,22 @@ namespace FurnitureStore.Admin
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
-        /// txtQualification control.
+        /// txtCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQualification;
+        protected global::System.Web.UI.WebControls.TextBox txtCategory;
 
         /// <summary>
-        /// fuComponyLogo control.
+        /// fuItemImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuComponyLogo;
+        protected global::System.Web.UI.WebControls.FileUpload fuItemImage;
 
         /// <summary>
         /// btnAdd control.

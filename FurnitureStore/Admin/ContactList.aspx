@@ -8,7 +8,7 @@
 
         <div class="container-fluid pt-4 pb-4">
             <div>
-                <asp:Label ID="lblMsg" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
             </div>
 
             <h3 class="text-center">Contact List</h3>
