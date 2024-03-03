@@ -88,6 +88,12 @@ namespace FurnitureStore.Store
             // storing the values of datatable i.e datalist for future use
             ddlCheckout.DataSource = dt;
             ddlCheckout.DataBind();
+
+            // binding total price
+            cmd = new SqlCommand(" select SUM(CAST(Price AS DECIMAL(10,2))) from Cart where UserId=" + Session["userId"],con);
+            Session["Total"]=cmd.ExecuteScalar();
+            lblCartTotal.Text = Session["Total"].ToString();
+            lblTotal.Text = Session["Total"].ToString();
             con.Close();
         }
 

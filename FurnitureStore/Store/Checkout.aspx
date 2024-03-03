@@ -85,74 +85,6 @@
                         </div>
 
 
-
-                        <div class="form-group">
-                            <label for="c_ship_different_address" class="text-black" data-bs-toggle="collapse" href="#ship_different_address" role="button" aria-expanded="false" aria-controls="ship_different_address">
-                                <asp:CheckBox ID="c_ship_different_address" Value="1" runat="server" Text=" Ship To A Different Address?" />
-                                <div class="collapse" id="ship_different_address">
-                                    <div class="py-2">
-
-                                        <div class="form-group">
-                                            <label for="c_diff_country" class="text-black">Country <span class="text-danger">*</span></label>
-                                            <asp:DropDownList ID="ddlCountry2" runat="server" CssClass="form-control">
-                                                <asp:ListItem Value="">Select Something</asp:ListItem>
-                                                <asp:ListItem Value="1">India</asp:ListItem>
-                                                <asp:ListItem Value="2">USA</asp:ListItem>
-                                                <asp:ListItem Value="3">Australia</asp:ListItem>
-                                                <asp:ListItem Value="3">Nepal</asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <div class="col-md-6">
-                                                <label for="txtFirstNameOther" class="text-black">First Name <span class="text-danger">*</span></label>
-                                                <asp:TextBox ID="txtFirstNameOther" CssClass="form-control" runat="server"></asp:TextBox>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="txtLastNameOther" class="text-black">Last Name <span class="text-danger">*</span></label>
-                                                <asp:TextBox ID="txtLastNameOther" CssClass="form-control" runat="server"></asp:TextBox>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <div class="col-md-12">
-                                                <label for="txtAddressOther1" class="text-black">Address <span class="text-danger">*</span></label>
-                                                <asp:TextBox ID="txtAddressOther1" CssClass="form-control" placeholder="Street address" runat="server"></asp:TextBox>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group mt-3">
-                                            <asp:TextBox ID="txtAddressOther2" Placeholder="Apartment, suite, unit etc. (optional)" CssClass="form-control" runat="server"></asp:TextBox>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <div class="col-md-6">
-                                                <label for="txtStateOther" class="text-black">State<span class="text-danger">*</span></label>
-                                                <asp:TextBox ID="txtStateOther" CssClass="form-control" runat="server"></asp:TextBox>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="txtPinCode" class="text-black">Posta / Zip <span class="text-danger">*</span></label>
-                                                <asp:TextBox ID="txtPinCodeOther" CssClass="form-control" runat="server"></asp:TextBox>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row mb-5">
-                                            <div class="col-md-6">
-                                                <label for="txtEmailOther" class="text-black">Email Address <span class="text-danger">*</span></label>
-                                                <asp:TextBox ID="txtEmailOther" CssClass="form-control" runat="server"></asp:TextBox>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="txtMobileOther" class="text-black">Phone <span class="text-danger">*</span></label>
-                                                <asp:TextBox ID="txtMobileOther" CssClass="form-control" runat="server"></asp:TextBox>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                        </div>
-
-
                     </div>
                 </div>
 
@@ -172,63 +104,41 @@
 
                                 <asp:DataList ID="ddlCheckout" runat="server">
                                     <ItemTemplate>
-                                        <table class="table site-block-order-table">
-                                            <tr>
-                                                <td>
-                                                    <img class="img-fluid rounded" src="../<%#(Eval("ProductImage")) %>" /></td>
-                                                <td><%#Eval("ProductName") %> <strong class="mx-2">x</strong> 1</td>
-                                                <td><%#Eval("Price") %></td>
-                                            </tr>
-                                        </table>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col table">
+                                                    <tr>
+                                                        <td>
+                                                            <img class="img-fluid rounded" src="../<%#Eval("ProductImage") %>" />
+                                                        </td>
+                                                        <td class="w-75"><%#Eval("ProductName") %> <strong class="mx-2">x</strong> 1</td>
+                                                        <td><%#Eval("Price") %></td>
+                                                    </tr>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </ItemTemplate>
                                 </asp:DataList>
+
 
                                 <table class="table site-block-order-table mb-5">
                                     <tbody>
 
                                         <tr>
                                             <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                                            <td class="text-black">$350.00</td>
+                                            <td><asp:Label ID="lblCartTotal" Csslass="text-black" runat="server"></asp:Label></td>
+<%--                                            <td >$350.00</td>--%>
                                         </tr>
                                         <tr>
                                             <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                                            <td class="text-black font-weight-bold"><strong>$350.00</strong></td>
+                                            <td><asp:Label ID="lblTotal" CssClass="text-black font-weight-bold" runat="server"></asp:Label></td>
+<%--                                            <td ><strong>$350.00</strong></td>--%>
                                         </tr>
                                     </tbody>
                                 </table>
 
-                                <div class="border p-3 mb-3">
-                                    <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
-
-                                    <div class="collapse" id="collapsebank">
-                                        <div class="py-2">
-                                            <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="border p-3 mb-3">
-                                    <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsecheque" role="button" aria-expanded="false" aria-controls="collapsecheque">Cheque Payment</a></h3>
-
-                                    <div class="collapse" id="collapsecheque">
-                                        <div class="py-2">
-                                            <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="border p-3 mb-5">
-                                    <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsepaypal" role="button" aria-expanded="false" aria-controls="collapsepaypal">Paypal</a></h3>
-
-                                    <div class="collapse" id="collapsepaypal">
-                                        <div class="py-2">
-                                            <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <div class="form-group">
-                                    <asp:Button ID="Button1" CssClass="btn btn-black btn-lg py-3 btn-block" runat="server" Text="Place Order" OnClick="Button1_Click"/>
+                                    <asp:Button ID="Button1" CssClass="btn btn-black btn-lg py-3 btn-block" runat="server" Text="Place Order" OnClick="Button1_Click" />
                                 </div>
 
                             </div>

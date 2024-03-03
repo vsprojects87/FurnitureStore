@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Store/Store.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="FurnitureStore.Store.Cart" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Store/Store.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="FurnitureStore.Store.Cart" EnableViewState="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -6,18 +6,14 @@
 
 
     <!-- Start Hero Section -->
-    <div class="hero">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-5">
-                    <div class="intro-excerpt">
+        <div class="container-fluid p-3" style="background-color:#3b5d50">
+            <div class="row justify-content-between" style="padding-left:6rem">
+                <div class="col-lg-5 text-white">
+<%--                    <div class="intro-excerpt">--%>
                         <h1>Cart</h1>
                     </div>
                 </div>
-                <div class="col-lg-7">
-                </div>
             </div>
-        </div>
     </div>
     <!-- End Hero Section -->
 
@@ -25,8 +21,9 @@
         <div class="container">
 
             <!--Datalist-->
-            <asp:DataList ID="dlCart" Width="100%" runat="server">
-                
+
+            <asp:DataList ID="dlCart" Width="100%" runat="server" DataKeyField="CartId">
+
                 <%--<HeaderTemplate>
                     <div class="container">
                         <div class="row mb-5">
@@ -61,7 +58,6 @@
                                             <th class="product-name">Product</th>
                                             <th class="product-price">Price</th>
                                             <th class="product-quantity">Quantity</th>
-                                            <th class="product-total">Total</th>
                                             <th class="product-remove">Remove</th>
                                         </tr>
                                     </thead>
@@ -78,16 +74,16 @@
                                             <td>
                                                 <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
                                                     <div class="input-group-prepend">
-                                                        <button class="btn btn-outline-black decrease" type="button">&minus;</button>
+                                                        <asp:Button ID="btnMinus" CssClass="btn btn-outline-black decrease" runat="server" Text="-"/>
                                                     </div>
-                                                    <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                    <asp:TextBox ID="txtQuantity" CssClass="form-control text-center quantity-amount" runat="server" Text="1"></asp:TextBox>
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-outline-black increase" type="button">&plus;</button>
+                                                        <asp:Button ID="btnPlus" CssClass="btn btn-outline-black increase" runat="server" Text="+"/>
                                                     </div>
+
                                                 </div>
 
                                             </td>
-                                            <td>$49.00</td>
                                             <td><a href="#" class="btn btn-black btn-sm">X</a></td>
                                         </tr>
 
@@ -139,7 +135,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <asp:Button ID="Button1" CssClass="btn btn-black btn-lg py-3 btn-block" runat="server" Text="Proceed To Checkout" OnClick="Button1_Click"/>
+                                    <asp:Button ID="Button1" CssClass="btn btn-black btn-lg py-3 btn-block" runat="server" Text="Proceed To Checkout" OnClick="Button1_Click" />
                                 </div>
                             </div>
                         </div>
