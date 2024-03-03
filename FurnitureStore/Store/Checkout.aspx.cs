@@ -18,14 +18,14 @@ namespace FurnitureStore.Store
         SqlCommand cmd;
         SqlDataAdapter adapter;
         DataTable dt, OrderDT;
-        int r;
-
+        string query;
+        int maxorderid;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["userId"] == null)
-            //{
-            //    Response.Redirect("LoginOrSignup.aspx");
-            //}
+            if (Session["userId"] == null)
+            {
+                Response.Redirect("LoginOrSignup.aspx");
+            }
             if (!IsPostBack)
             {
                 bindUserDetails();
@@ -34,7 +34,7 @@ namespace FurnitureStore.Store
             }
         }
 
-
+        // binding user detail from user database table to checkout address so we dont have to type every field
         private void bindUserDetails()
         {
             string fullName = string.Empty;
@@ -46,8 +46,7 @@ namespace FurnitureStore.Store
             con.Open();
             string query = "Select * from [User] where UserId=@UserId";
             cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@UserId", 2);
-            //cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
+            cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
@@ -73,14 +72,13 @@ namespace FurnitureStore.Store
             con.Close();
         }
 
-
+        // all the products from card will be binded to checkout page once we go onto checkout from carts
         private void bindCart()
         {
             con.Open();
             string query = "Select ProductId,ProductImage,ProductName,Price,CartId from [Cart] where UserId=@UserId";
             cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@UserId", 1);
-            //cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
+            cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
             adapter = new SqlDataAdapter(cmd);
             dt = new DataTable();
             OrderDT = new DataTable();
@@ -93,121 +91,106 @@ namespace FurnitureStore.Store
             con.Close();
         }
 
+        // this is the main function which is saving every product order record one by one from getting data from datatable
+        // and each row storing records in database as a different cart product but all having same ProductId
         private void saveOrderRecords()
         {
+            autoincreament();
             DataTable storedDataTable = Session["StoredDataTable"] as DataTable;
-            // Assuming you already have a DataTable named "storedDataTable"
-            List<Dictionary<string, string>> rows = new List<Dictionary<string, string>>();
-
+            DateTime time = DateTime.Now;
+            int tprice = 0;
+            bool success = false;
             foreach (DataRow row in storedDataTable.Rows)
             {
-                Dictionary<string, string> rowData = new Dictionary<string, string>();
-
-                foreach (DataColumn col in storedDataTable.Columns)
+                string col1 = row["ProductId"].ToString();
+                string col2 = row["ProductImage"].ToString();
+                string col3 = row["ProductName"].ToString();
+                string col4 = row["Price"].ToString();
+                if (int.TryParse(col4, out int num))
                 {
-                    // Access the value in the current cell
-                    object cellValue = row[col];
-
-                    // Convert the cell value to string (handling null values gracefully)
-                    string stringValue = cellValue?.ToString() ?? "";
-
-                    // Add the column name and corresponding cell value to the rowData dictionary
-                    rowData.Add(col.ColumnName, stringValue);
+                    tprice = tprice + num;
                 }
-
-                // Add the rowData dictionary to the rows list
-                rows.Add(rowData);
+                try
+                {
+                    con.Open();
+                    query = "Insert into [Order](OrderId,OrderDate,OrderTotal,ProductPrice,ProductName,ProductId,ProductImage" +
+                        ",UserId,PersonName,BillingAddress,PersonPinCode,PersonMobile ,PaymentMode) " +
+                        "values(@OrderId,@OrderDate,@OrderTotal,@ProductPrice,@ProductName,@ProductId,@ProductImage,@UserId,@PersonName,@BillingAddress,@PersonPinCode," +
+                        "@PersonMobile,@PaymentMode)";
+                    cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@OrderId", maxorderid);
+                    cmd.Parameters.AddWithValue("@OrderDate", Convert.ToDateTime(time.ToString("yyyy-MM-dd HH:mm:ss")));
+                    cmd.Parameters.AddWithValue("@OrderTotal", tprice.ToString());
+                    cmd.Parameters.AddWithValue("@ProductPrice", col4);
+                    cmd.Parameters.AddWithValue("@ProductName", col3);
+                    cmd.Parameters.AddWithValue("@ProductId", col1);
+                    cmd.Parameters.AddWithValue("@ProductImage", col2);
+                    cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
+                    cmd.Parameters.AddWithValue("@PersonName", Session["personname"]);
+                    cmd.Parameters.AddWithValue("@BillingAddress", txtAddress1.Text + txtAddress2.Text);
+                    cmd.Parameters.AddWithValue("@PersonPinCode", txtPinCode.Text);
+                    cmd.Parameters.AddWithValue("@PersonMobile", txtMobile.Text);
+                    cmd.Parameters.AddWithValue("@PaymentMode", "COD");
+                    int res = cmd.ExecuteNonQuery();
+                    if (res > 0)
+                    {
+                        con.Close();
+                        success = true;
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Cannot Placed Order')</script>");
+                        con.Close();
+                        success = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('" + ex.Message + "')</script>");
+                }
             }
-
-            // Display or use the data as needed
-            foreach (var row in rows)
+            if (success)
             {
-                string pid = string.Empty;
-                string pimg = string.Empty;
-                string pname = string.Empty;
-                string pprice=string.Empty;
-                int tprice = 0;
-                DateTime time = DateTime.Now;
-                foreach (var kvp in row)
-                {
-                    Label1.Text += kvp.Value + " : "  ;
-                    //pid=kvp.Value;
-                    //pimg = kvp.Value;
-                    //pname = kvp.Value;
-                    //pprice = kvp.Value;
-                    //if (int.TryParse(pprice, out int intValue))
-                    //{
-                    //    tprice = tprice + intValue;
-                    //}
-
-                }
-                Response.Write(" <br/>");
-
-                //try
-                //{
-                //    con.Open();
-                //    string query = "Insert into [Order]([OrderId],[OrderDate],[OrderTotal],[ProductName],[ProductId],[ProductImage]" +
-                //        ",[UserId],[PersonName],[BillingAddress],[PersonPinCode],[PersonMobile] ,[PaymentMode]) " +
-                //        "values(@OrderId,@OrderDate,@OrderTotal,@ProductName,@ProductId,@ProductImage,@UserId,@PersonName,@BillingAddress,@PersonPinCode," +
-                //        "@PersonMobile,@PaymentMode)";
-                //    cmd = new SqlCommand(query, con);
-                //    cmd.Parameters.AddWithValue("@OrderId", r);
-                //    cmd.Parameters.AddWithValue("@OrderDate", time.ToString("yyyy-MM-dd HH:mm:ss"));
-                //    cmd.Parameters.AddWithValue("@OrderTotal", Convert.ToInt32(tprice));
-                //    cmd.Parameters.AddWithValue("@ProductName", pname);
-                //    cmd.Parameters.AddWithValue("@ProductId", pid);
-                //    cmd.Parameters.AddWithValue("@ProductImage", pimg);
-                //    cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
-                //    cmd.Parameters.AddWithValue("@PersonName", Session["personname"]);
-                //    cmd.Parameters.AddWithValue("@BillingAddress", txtAddress1.Text + txtAddress2.Text);
-                //    cmd.Parameters.AddWithValue("@PersonPinCode", txtPinCode.Text);
-                //    cmd.Parameters.AddWithValue("@PersonMobile", txtMobile.Text);
-                //    cmd.Parameters.AddWithValue("@PaymentMode", "COD");
-                //    int res = cmd.ExecuteNonQuery();
-                //    if (res > 0)
-                //    {
-                //        Response.Write("<script>alert('Order Placed Successfully')</script>");
-                //        Response.Redirect("../Store/ThankYou.aspx");
-                //    }
-                //    else
-                //    {
-                //        Response.Write("<script>alert('Cannot Placed Order')</script>");
-                //    }
-                //    con.Close();
-                //} catch(Exception ex)
-                //{
-                //    Response.Write("<script>alert('"+ex.Message+"')</script>");
-                //}
+                Response.Redirect("../Store/ThankYou.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('Failed')</script>");
             }
         }
 
+
+        // button click event for order
         protected void Button1_Click(object sender, EventArgs e)
         {
             saveOrderRecords();
         }
 
+
+        // will get the max order id for next order
         public void autoincreament()
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select max(OrderId) from [Order]", con);
+            cmd = new SqlCommand("select MAX(OrderId) from [Order]", con);
             SqlDataReader dr = cmd.ExecuteReader();
 
             if (dr.Read())
             {
                 string d = dr[0].ToString();
-                if (d == "")
+                if (d == null)
                 {
-                   r = 1;
+                    maxorderid = 1;
                 }
                 else
                 {
-                    r = Convert.ToInt16(d[0].ToString());
-                    r = r + 1;
+                    if (int.TryParse(d, out int num))
+                    {
+                        maxorderid = num + 1;
+                    }
                 }
             }
             dr.Close();
             con.Close();
-
         }
 
     }

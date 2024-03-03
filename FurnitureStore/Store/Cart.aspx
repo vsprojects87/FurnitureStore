@@ -26,34 +26,46 @@
 
             <!--Datalist-->
             <asp:DataList ID="dlCart" Width="100%" runat="server">
-                <HeaderTemplate>
-
+                
+                <%--<HeaderTemplate>
                     <div class="container">
                         <div class="row mb-5">
-                            <%--                    <form class="col-md-12" method="post">--%>
-                            <table class="table text-end">
-                                <thead>
-                                    <tr>
-                                        <th class="product-thumbnail" style="width:12%;">Image</th>
-                                        <th class="product-name" style="width:22%;">Product</th>
-                                        <th class="product-price" style="width:19%;">Price</th>
-                                        <th class="product-quantity" style="width:15%;">Quantity</th>
-                                        <th class="product-total" style="width:18%;">Total</th>
-                                        <th class="product-remove">Remove</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                            <%--</form>--%>
+                            <form class="col-md-12" method="post">
+                                <table class="table text-end">
+                                    <thead>
+                                        <tr>
+                                            <th class="product-thumbnail" style="width: 12%;">Image</th>
+                                            <th class="product-name" style="width: 22%;">Product</th>
+                                            <th class="product-price" style="width: 19%;">Price</th>
+                                            <th class="product-quantity" style="width: 15%;">Quantity</th>
+                                            <th class="product-total" style="width: 18%;">Total</th>
+                                            <th class="product-remove">Remove</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </form>
                         </div>
                     </div>
-                </HeaderTemplate>
+                </HeaderTemplate>--%>
 
                 <ItemTemplate>
 
                     <div class="row mb-5">
                         <form class="col-md-12" method="post">
                             <div class="site-blocks-table">
-                                <table class="table">
+                                <table class="table text-end">
+
+                                    <thead>
+                                        <tr>
+                                            <th class="product-thumbnail">Image</th>
+                                            <th class="product-name">Product</th>
+                                            <th class="product-price">Price</th>
+                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-total">Total</th>
+                                            <th class="product-remove">Remove</th>
+                                        </tr>
+                                    </thead>
+
                                     <tbody>
                                         <tr>
                                             <td class="product-thumbnail">
@@ -98,7 +110,7 @@
                             <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
                         </div>
                     </div>
-                   
+
                 </div>
                 <div class="col-md-6 pl-5">
                     <div class="row justify-content-end">
@@ -127,7 +139,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button class="btn btn-black btn-lg py-3 btn-block" onclick="">Proceed To Checkout</button>
+                                    <asp:Button ID="Button1" CssClass="btn btn-black btn-lg py-3 btn-block" runat="server" Text="Proceed To Checkout" OnClick="Button1_Click"/>
                                 </div>
                             </div>
                         </div>

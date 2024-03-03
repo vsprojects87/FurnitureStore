@@ -34,7 +34,7 @@ namespace FurnitureStore.Store
         {
             if (dt == null)
             {
-                string query = @"Select ProductId, ProductName, ProductPrice, ProductDescription, ProductImage from Products";
+                query = @"Select ProductId, ProductName, ProductPrice, ProductDescription, ProductImage from Products";
                 cmd = new SqlCommand(query, con);
                 adapter = new SqlDataAdapter(cmd);
                 dt = new DataTable();
