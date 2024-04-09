@@ -120,6 +120,7 @@
     <Content Include="Assets\js\jquery-1.12.4.min.js" />
     <Content Include="Assets\js\popper.min.js" />
     <Content Include="Assets\js\tiny-slider.js" />
+    <Content Include="Remove Code.txt" />
     <Content Include="Store\About.aspx" />
     <Content Include="Store\Cart.aspx" />
     <Content Include="Store\Checkout.aspx" />

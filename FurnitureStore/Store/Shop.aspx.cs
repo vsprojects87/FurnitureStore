@@ -66,7 +66,7 @@ namespace FurnitureStore.Store
             try
             {
                 con.Open();
-                cmd = new SqlCommand("select ProductName, ProductPrice from Products where ProductId=@p1",con);
+                cmd = new SqlCommand("select ProductName, ProductPrice,ProductImage from Products where ProductId=@p1",con);
                 cmd.Parameters.AddWithValue("@p1", Session["productId"]);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)

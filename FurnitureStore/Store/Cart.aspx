@@ -5,95 +5,76 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
+    <style type="text/css">
+        .rowStyle {
+            margin-bottom: 10px; /* Adjust the value as needed */
+        }
+    </style>
+
     <!-- Start Hero Section -->
-        <div class="container-fluid p-3" style="background-color:#3b5d50">
-            <div class="row justify-content-between" style="padding-left:6rem">
-                <div class="col-lg-5 text-white">
-<%--                    <div class="intro-excerpt">--%>
-                        <h1>Cart</h1>
-                    </div>
-                </div>
+    <div class="container-fluid p-3" style="background-color: #3b5d50">
+        <div class="row justify-content-between" style="padding-left: 6rem">
+            <div class="col-lg-5 text-white">
+                <%--                    <div class="intro-excerpt">--%>
+                <h1>Cart</h1>
             </div>
+        </div>
+    </div>
     </div>
     <!-- End Hero Section -->
 
     <div class="untree_co-section before-footer-section">
         <div class="container">
 
-            <!--Datalist-->
+            <!-- Cart Items GridView-->
 
-            <asp:DataList ID="dlCart" Width="100%" runat="server" DataKeyField="CartId">
 
-                <%--<HeaderTemplate>
-                    <div class="container">
-                        <div class="row mb-5">
-                            <form class="col-md-12" method="post">
-                                <table class="table text-end">
-                                    <thead>
-                                        <tr>
-                                            <th class="product-thumbnail" style="width: 12%;">Image</th>
-                                            <th class="product-name" style="width: 22%;">Product</th>
-                                            <th class="product-price" style="width: 19%;">Price</th>
-                                            <th class="product-quantity" style="width: 15%;">Quantity</th>
-                                            <th class="product-total" style="width: 18%;">Total</th>
-                                            <th class="product-remove">Remove</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </form>
-                        </div>
-                    </div>
-                </HeaderTemplate>--%>
+            <asp:GridView ID="gv_shopcart" runat="server" AutoGenerateColumns="False"
+                DataKeyNames="CartId" ShowFooter="True" OnRowDeleting="gv_shopcart_RowDeleting"
+                ShowHeaderWhenEmpty="True"
+                EmptyDataText="  Not product in shopping cart "
+                EmptyDataRowStyle-ForeColor="Red" GridLines="None" CssClass="table table-borderless">
+                <HeaderStyle ForeColor="MediumBlue" />
+                <Columns>
 
-                <ItemTemplate>
+                    <asp:TemplateField HeaderText="Image">
+                        <%--                        <HeaderStyle BorderStyle="Groove" BorderWidth="1px" HorizontalAlign="Center" />--%>
+                        <ItemStyle BorderStyle="Groove" BorderWidth="1px" HorizontalAlign="Center" />
+                        <ItemTemplate>
+                            <img src='../Assets/images/sofa.png' alt="Image" style="height: 50px; width: 50px;" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
-                    <div class="row mb-5">
-                        <form class="col-md-12" method="post">
-                            <div class="site-blocks-table">
-                                <table class="table text-end">
 
-                                    <thead>
-                                        <tr>
-                                            <th class="product-thumbnail">Image</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
-                                            <th class="product-remove">Remove</th>
-                                        </tr>
-                                    </thead>
+                    <asp:BoundField DataField="ProductImage" HeaderText="Product" ReadOnly="True">
+                        <%--                        <HeaderStyle BorderStyle="Groove" BorderWidth="1px" HorizontalAlign="Center" />--%>
+                        <ItemStyle BorderStyle="Groove" BorderWidth="1px" HorizontalAlign="Center" />
+                    </asp:BoundField>
 
-                                    <tbody>
-                                        <tr>
-                                            <td class="product-thumbnail">
-                                                <img src="../Assets/images/product-1.png" alt="Image" class="img-fluid">
-                                            </td>
-                                            <td class="product-name">
-                                                <h2 class="h5 text-black"><%#Eval("ProductName") %></h2>
-                                            </td>
-                                            <td><%#Eval("Price") %></td>
-                                            <td>
-                                                <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                                                    <div class="input-group-prepend">
-                                                        <asp:Button ID="btnMinus" CssClass="btn btn-outline-black decrease" runat="server" Text="-"/>
-                                                    </div>
-                                                    <asp:TextBox ID="txtQuantity" CssClass="form-control text-center quantity-amount" runat="server" Text="1"></asp:TextBox>
-                                                    <div class="input-group-append">
-                                                        <asp:Button ID="btnPlus" CssClass="btn btn-outline-black increase" runat="server" Text="+"/>
-                                                    </div>
+                    <asp:BoundField DataField="ProductName" HeaderText="ProductName">
+                        <%--                        <HeaderStyle BorderStyle="Groove" BorderWidth="1px" HorizontalAlign="Center" />--%>
+                        <ItemStyle BorderStyle="Groove" BorderWidth="1px" HorizontalAlign="Left" />
+                    </asp:BoundField>
 
-                                                </div>
+                    <asp:BoundField DataField="price" HeaderText="Price" ReadOnly="True">
+                        <%--                        <HeaderStyle BorderStyle="Groove" BorderWidth="1px" HorizontalAlign="Center" />--%>
+                        <ItemStyle BorderStyle="Groove" BorderWidth="1px" HorizontalAlign="Center" />
+                    </asp:BoundField>
 
-                                            </td>
-                                            <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                                        </tr>
+                    <asp:CommandField HeaderText="Option" DeleteText="X" ControlStyle-CssClass="btn"
+                        ShowDeleteButton="True">
+                        <%--                        <HeaderStyle BorderStyle="Groove" BorderWidth="1px" HorizontalAlign="Center" />--%>
+                        <ItemStyle BorderStyle="Groove" BorderWidth="1px" HorizontalAlign="Center" />
+                    </asp:CommandField>
+                </Columns>
+                <RowStyle Font-Size="Large" Font-Bold="true" Height="80px"/>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </form>
-                    </div>
-                </ItemTemplate>
-            </asp:DataList>
+            </asp:GridView>
+
+
+            <!-- Cart Items GridView Ends-->
+
+
 
             <!--Buttons-->
             <div class="row">

@@ -26,13 +26,12 @@
         <div class="container">
             <div class="row">
 
-
                 <asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal" RepeatColumns="4">
                     <ItemTemplate>
 
                         <!-- Start Column 1 -->
                         <div class="col-12 col-md-4 col-lg-10 mb-5 align-content-lg-center">
-                            <%--changes : from col-lg-3 to col-lg-10--%>
+                            <%-- changes : from col-lg-3 to col-lg-10 --%>
                             <a class="product-item" href="#">
                                 <img src="../<%#(Eval("ProductImage")) %>" class="img-fluid product-thumbnail">
                                 <h3 class="product-title"><%#Eval("ProductName") %></h3>
@@ -46,6 +45,10 @@
                         <!-- End Column 1 -->
                     </ItemTemplate>
                 </asp:DataList>
+
+
+
+
             </div>
         </div>
     </div>

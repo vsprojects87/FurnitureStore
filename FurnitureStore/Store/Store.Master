@@ -35,7 +35,7 @@
             <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
                 <div class="container">
-                    <a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+                    <a class="navbar-brand" href="default.aspx">Furni<span>.</span></a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -96,10 +96,10 @@
                             <p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
 
                             <ul class="list-unstyled custom-social">
-                                <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-                                <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-                                <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-                                <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+                                <li><a href="www.facebook.com"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+                                <li><a href="www.twitter.com"><span class="fa fa-brands fa-twitter"></span></a></li>
+                                <li><a href="www.instagram.com"><span class="fa fa-brands fa-instagram"></span></a></li>
+                                <li><a href="www.in.likedin.com"><span class="fa fa-brands fa-linkedin"></span></a></li>
                             </ul>
                         </div>
 
