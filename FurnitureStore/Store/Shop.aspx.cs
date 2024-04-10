@@ -22,7 +22,7 @@ namespace FurnitureStore.Store
         SqlDataAdapter adapter;
         DataTable dt;
         string query;
-        string ProductPrice, ProductName, ProductImage = string.Empty;
+        string ProductPrice="", ProductName="", ProductImage = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -79,7 +79,7 @@ namespace FurnitureStore.Store
                     }
                 }
                 reader.Close();
-                cmd = new SqlCommand("insert into [Cart](UserId, ProductId,ProductName, Price) values(@UserId,@ProductId,@ProductName,@Price)", con);
+                cmd = new SqlCommand("insert into [Cart](UserId, ProductId,ProductName, Price,ProductImage) values(@UserId,@ProductId,@ProductName,@Price,@ProductImage)", con);
                 cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
                 cmd.Parameters.AddWithValue("@ProductId", Session["productId"]);
                 cmd.Parameters.AddWithValue("@ProductName", ProductName);

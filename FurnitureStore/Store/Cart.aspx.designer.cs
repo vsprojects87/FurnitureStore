@@ -24,6 +24,24 @@ namespace FurnitureStore.Store
 		protected global::System.Web.UI.WebControls.GridView gv_shopcart;
 
 		/// <summary>
+		/// Label1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label1;
+
+		/// <summary>
+		/// lblTotalAllCart control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblTotalAllCart;
+
+		/// <summary>
 		/// Button1 control.
 		/// </summary>
 		/// <remarks>
