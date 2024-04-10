@@ -34,12 +34,21 @@ namespace FurnitureStore.Store
 
 		private void showCartItems()
 		{
+			con.Open();
 			string query = "Select CartId,ProductImage,ProductName,Price from [Cart] where UserId=@UserId";
 			cmd = new SqlCommand(query, con);
 			cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
 			adapter = new SqlDataAdapter(cmd);
 			dt = new DataTable();
 			adapter.Fill(dt);
+
+			cmd=new SqlCommand("SELECT SUM(CAST(Price AS DECIMAL(18,2))) FROM Cart", con);
+			object result = cmd.ExecuteScalar();
+			if (result != DBNull.Value)
+			{
+				int totalPrice = Convert.ToInt32(result);
+				lblTotalAllCart.Text = totalPrice.ToString();
+			}
 			// storing cart data into session for further use
 			//Session["StoredCartData"] = dt;
 			if (dt != null)
