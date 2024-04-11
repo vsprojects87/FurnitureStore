@@ -76,7 +76,7 @@
 
             <div style="margin-top:25px">
                 <asp:Label ID="Label1" runat="server" CssClass="text-black h5 text-uppercase d-sm-inline" Text="Cart Totals : "></asp:Label>
-                <asp:Label ID="lblTotalAllCart" CssClass="text-black h5" runat="server" Text="$230.00"></asp:Label>
+                <asp:Label ID="lblTotalAllCart" CssClass="text-black h5" runat="server" Text="0 rs"></asp:Label>
             </div>
 
             <!-- Cart Items GridView Ends-->
