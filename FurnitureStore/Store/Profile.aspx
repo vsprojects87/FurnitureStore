@@ -125,68 +125,63 @@
 
     <asp:DataList ID="dlOrder" runat="server" OnItemDataBound="dlOrder_ItemDataBound">
         <ItemTemplate>
-            <div class="container">
+            <div class="container mb-5">
                 <div class="row">
-                    <div class="col">
-                        <div class="card order-list ms-5">
-                            <div class="card-header">
-                                <div class="d-flex justify-content-between">
-                                    <span class="text-muted">#OrderID:
+                    <div class="card order-list ms-5" style="width: 100vw">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">#OrderID:
                             <asp:Label ID="lblOrderID" runat="server" Text='<%# Eval("OrderId") %>'></asp:Label></span>
-                                    <span class="text-muted">
-                                        <asp:Label ID="lblOrderDate" runat="server" Text='<%# Eval("OrderDate") %>'></asp:Label></span>
-                                </div>
+                                <span class="text-muted">
+                                    <asp:Label ID="lblOrderDate" runat="server" Text='<%# Eval("OrderDate") %>'></asp:Label></span>
                             </div>
-                            <asp:DataList ID="dlSingleOrder" runat="server">
-                                <ItemTemplate>
+                        </div>
+                        <asp:DataList ID="dlSingleOrder" runat="server">
+                            <ItemTemplate>
 
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <img class="img-fluid img-responsive rounded" src="../<%#( Eval("ProductImage")) %>" width="100" height="100">
-                                            </div>
-                                            <div class="col-md-9">
-                                                <h5 class="card-title">
-                                                    <asp:Label ID="lblProductName" runat="server" Text='<%# Eval("ProductName") %>'></asp:Label></h5>
-                                                <p class="card-text">
-                                                    Price:
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img class="img-fluid img-responsive rounded" src="../<%#( Eval("ProductImage")) %>" width="100" height="100">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h5 class="card-title">
+                                                <asp:Label ID="lblProductName" runat="server" Text='<%# Eval("ProductName") %>'></asp:Label></h5>
+                                            <p class="card-text">
+                                                Price:
                                         <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("ProductPrice") %>'></asp:Label>
-                                                </p>
-                                            </div>
+                                            </p>
                                         </div>
                                     </div>
-                                </ItemTemplate>
-                            </asp:DataList>
-                            <div class="card-footer">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <p class="text-muted">
-                                            Total Price:
+                                </div>
+                            </ItemTemplate>
+                        </asp:DataList>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <p class="text-muted">
+                                        Total Price:
                                 <asp:Label ID="lblTotalPrice" runat="server" Text='<%# Eval("MaxOrderTotal") %>'></asp:Label>
-                                        </p>
-                                        <p class="text-muted">
-                                            Payment Mode:
+                                    </p>
+                                    <p class="text-muted">
+                                        Payment Mode:
                                 <asp:Label ID="lblPaymentMode" runat="server" Text='<%# Eval("PaymentMode") %>'></asp:Label>
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-muted">
-                                            <asp:Label ID="lblAddress" runat="server" Text='<%# Eval("BillingAddress") %>'></asp:Label>
-                                        </p>
-                                    </div>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="text-muted">
+                                        <asp:Label ID="lblAddress" runat="server" Text='<%# Eval("BillingAddress") %>'></asp:Label>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
         </ItemTemplate>
     </asp:DataList>
 
 
-
-    <br />
-    <br />
 
     <style>
         .order-list {

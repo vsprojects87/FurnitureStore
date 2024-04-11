@@ -132,8 +132,8 @@ namespace FurnitureStore.Store
                     cmd.Parameters.AddWithValue("@ProductId", col1);
                     cmd.Parameters.AddWithValue("@ProductImage", col2);
                     cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
-                    cmd.Parameters.AddWithValue("@PersonName", Session["personname"]);
-                    cmd.Parameters.AddWithValue("@BillingAddress", txtAddress1.Text + txtAddress2.Text);
+                    cmd.Parameters.AddWithValue("@PersonName", txtFirstName.Text + " " + txtLastName.Text);
+                    cmd.Parameters.AddWithValue("@BillingAddress", txtAddress1.Text +", " + txtAddress2.Text);
                     cmd.Parameters.AddWithValue("@PersonPinCode", txtPinCode.Text);
                     cmd.Parameters.AddWithValue("@PersonMobile", txtMobile.Text);
                     cmd.Parameters.AddWithValue("@PaymentMode", "COD");
