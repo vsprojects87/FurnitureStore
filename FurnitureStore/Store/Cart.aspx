@@ -88,7 +88,7 @@
                 <div class="col-md-6">
                     <div class="row mb-5">
                         <div class="col-md-5">
-                            <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
+                            <a href="Shop.aspx" class="btn btn-outline-black btn-sm btn-block">Continue Shopping</a>
                         </div>
                     </div>
                 </div>

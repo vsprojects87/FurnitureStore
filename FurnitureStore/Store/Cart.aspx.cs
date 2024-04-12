@@ -27,6 +27,7 @@ namespace FurnitureStore.Store
 			if (!IsPostBack)
 			{
 				showCartItems();
+				getTotalPriceOfCartProducts();
 			}
 		}
 
@@ -41,14 +42,6 @@ namespace FurnitureStore.Store
 			adapter = new SqlDataAdapter(cmd);
 			dt = new DataTable();
 			adapter.Fill(dt);
-
-			cmd=new SqlCommand("SELECT SUM(CAST(Price AS DECIMAL(18,2))) FROM Cart", con);
-			object result = cmd.ExecuteScalar();
-			if (result != DBNull.Value)
-			{
-				int totalPrice = Convert.ToInt32(result);
-				lblTotalAllCart.Text = totalPrice.ToString();
-			}
 			// storing cart data into session for further use
 			//Session["StoredCartData"] = dt;
 			if (dt != null)
@@ -60,6 +53,20 @@ namespace FurnitureStore.Store
 			{
 				Response.Write("<h2>No Items In the Cart</h2>");
 			}
+		}
+
+		// it gets the total of all products in cart
+		private void getTotalPriceOfCartProducts()
+		{
+			con.Open();
+			cmd = new SqlCommand("SELECT SUM(CAST(Price AS DECIMAL(18,2))) FROM Cart", con);
+			object result = cmd.ExecuteScalar();
+			if (result != DBNull.Value)
+			{
+				int totalPrice = Convert.ToInt32(result);
+				lblTotalAllCart.Text = totalPrice.ToString();
+			}
+			con.Close();
 		}
 
 		protected void Button1_Click(object sender, EventArgs e)
@@ -97,6 +104,8 @@ namespace FurnitureStore.Store
 
 			// Rebind the DataList after deletion
 			showCartItems();
+			// refreshing new total after item deletion
+			getTotalPriceOfCartProducts();
 		}
 
 

@@ -63,7 +63,7 @@
                                 <ItemStyle HorizontalAlign="Center" Width="50px" />
                             </asp:TemplateField>
 
-                            <asp:CommandField CausesValidation="false" HeaderText="Delete" ShowDeleteButton="true" DeleteImageUrl="../assets/img/icon/job-list4.png">
+                            <asp:CommandField CausesValidation="false" HeaderText="Delete" DeleteText="X" ControlStyle-CssClass="btn" ShowDeleteButton="True">
                                 <ControlStyle Height="25px" Width="25px"></ControlStyle>
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:CommandField>

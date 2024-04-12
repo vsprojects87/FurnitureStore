@@ -53,8 +53,7 @@ namespace FurnitureStore.Store
                     PanelSignIn.Visible = true;
                     PanelSignUp.Visible = false;
                     lblMessage.Visible = true;
-                    lblMessage.Text = "Sign Up Successful";
-                    lblMessage.CssClass = "alert alert-success";
+					Response.Write("<script>alert('Sign Up Successful');</script>");
                     clear();
                 }
                 else

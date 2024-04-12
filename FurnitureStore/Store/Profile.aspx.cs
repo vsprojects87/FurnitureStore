@@ -102,11 +102,11 @@ namespace FurnitureStore.Store
 		{
 			// we have only taken fields which is common for all the prodct under same order id like
 			// customer name, orderid, paymentmode,etc.
-			string query = "SELECT  [OrderId], BillingAddress,PersonPinCode,PersonMobile,OrderDate," +
+			string query = "SELECT  [OrderId],PersonName, BillingAddress,PersonPinCode,PersonMobile,OrderDate," +
 				"PaymentMode,MAX(OrderTotal) AS MaxOrderTotal " +
 				"FROM[dbo].[Order] " +
 				"WHERE UserId = @UserId " +
-				"GROUP BY [OrderId],BillingAddress,  PersonPinCode, PersonMobile, OrderDate,PaymentMode;";
+				"GROUP BY [OrderId],PersonName,BillingAddress,  PersonPinCode, PersonMobile, OrderDate,PaymentMode;";
 			cmd = new SqlCommand(query, con);
 			cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
 			adapter = new SqlDataAdapter(cmd);

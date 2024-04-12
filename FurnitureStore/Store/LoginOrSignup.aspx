@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="font-light" for="txtPassword">Password</label>
-                                    <asp:TextBox ID="txtPassword" class="form-control" runat="server" required></asp:TextBox>
+                                    <asp:TextBox ID="txtPassword" class="form-control" TextMode="Password" runat="server" required></asp:TextBox>
                                 </div>
 
                                 <asp:Button ID="btnLogIn" runat="server" CssClass="btn btn-primary-hover-outline" Text="Sign In" OnClick="btnLogIn_Click" />
@@ -99,14 +99,15 @@
 
                                         <div class="form-group">
                                             <label class="font-light" for="txtPassword">Password</label>
-                                            <asp:TextBox ID="txtPassword2" class="form-control" runat="server" required></asp:TextBox>
+                                            <asp:TextBox ID="txtPassword2" class="form-control" TextMode="Password" runat="server" required></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-6">
 
                                         <div class="form-group">
                                             <label class="font-light" for="txtConformPassword">Confirm Password</label>
-                                            <asp:TextBox ID="txtConformPassword" class="form-control" runat="server" required></asp:TextBox>
+                                            <asp:TextBox ID="txtConformPassword" class="form-control" runat="server" TextMode="Password" required></asp:TextBox>
+                                            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Password should be same" ControlToValidate="txtConformPassword" ControlToCompare="txtPassword2"></asp:CompareValidator>
                                         </div>
 
                                     </div>

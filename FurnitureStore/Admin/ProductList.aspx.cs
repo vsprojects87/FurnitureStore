@@ -104,8 +104,8 @@ namespace FurnitureStore.Admin
                 e.Row.ID = e.Row.RowIndex.ToString();
                 if (Request.QueryString["id"] != null)
                 {
-                    int jobId = Convert.ToInt32(GridView1.DataKeys[e.Row.RowIndex].Values[0]);
-                    if (jobId == Convert.ToInt32(Request.QueryString["id"]))
+                    int productId = Convert.ToInt32(GridView1.DataKeys[e.Row.RowIndex].Values[0]);
+                    if (productId == Convert.ToInt32(Request.QueryString["id"]))
                     {
                         e.Row.BackColor = ColorTranslator.FromHtml("#A1DCF2");
                     }

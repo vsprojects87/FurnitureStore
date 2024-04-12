@@ -31,7 +31,10 @@ namespace FurnitureStore.Admin
         private void ShowUsers()
         {
             string query = string.Empty;
-            query = @"Select Row_Number() over(Order by (Select 1)) as [Sr.No], OrderId ,OrderDate, OrderTotal, ProductName, PersonName, BillingAddress, PersonPinCode, PaymentMode from [Order]";
+            query = @"Select Row_Number() over(Order by (Select 1)) as [Sr.No],[OrderId],PersonName, BillingAddress,PersonPinCode,PersonMobile,OrderDate, "+
+				"PaymentMode,MAX(OrderTotal) AS MaxOrderTotal " +
+				"FROM[dbo].[Order] " +
+				"GROUP BY [OrderId],PersonName,BillingAddress,  PersonPinCode, PersonMobile, OrderDate,PaymentMode";
             cmd = new SqlCommand(query, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -52,7 +55,7 @@ namespace FurnitureStore.Admin
             {
                 GridViewRow row = GridView1.Rows[e.RowIndex];
                 int OrderId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
-                cmd = new SqlCommand("Delete from [Orders] where OrderId=@id", con);
+                cmd = new SqlCommand("Delete from [Order] where OrderId=@id", con);
                 cmd.Parameters.AddWithValue("@id", OrderId);
                 con.Open();
                 int r = cmd.ExecuteNonQuery();

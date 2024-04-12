@@ -12,7 +12,7 @@
                 <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
             </div>
 
-            <h3 class="text-center">User List/Details</h3>
+            <h3 class="text-center">Orders List</h3>
 
             <div class="row mb-3 pt-sm-3">
                 <div class="col-md-12">
@@ -23,15 +23,15 @@
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
 
-                            <asp:BoundField DataField="PersonName" HeaderText="PersonName">
+                            <asp:BoundField DataField="OrderId" HeaderText="Order Id">
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
 
-                            <asp:BoundField DataField="ProductName" HeaderText="ProductName">
+                            <asp:BoundField DataField="PersonName" HeaderText="Customer Name">
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
 
-                            <asp:BoundField DataField="OrderTotal" HeaderText="OrderTotal">
+                            <asp:BoundField DataField="MaxOrderTotal" HeaderText="Order Total">
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
 
@@ -51,7 +51,7 @@
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
 
-                            <asp:CommandField CausesValidation="false" HeaderText="Delete" ShowDeleteButton="true" DeleteImageUrl="../assets/img/icon/job-list4.png">
+                            <asp:CommandField CausesValidation="false" HeaderText="Delete" ShowDeleteButton="true" DeleteText="X" ControlStyle-CssClass="btn">
                                 <ControlStyle Height="25px" Width="25px"></ControlStyle>
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:CommandField>

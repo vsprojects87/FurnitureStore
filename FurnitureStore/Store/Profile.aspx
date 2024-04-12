@@ -122,18 +122,23 @@
     </div>
     <%--Order area--%>
 
+    <style>
+        .order-fontsize {
+            font-size: 1.2rem;
+        }
+    </style>
 
     <asp:DataList ID="dlOrder" runat="server" OnItemDataBound="dlOrder_ItemDataBound">
         <ItemTemplate>
             <div class="container mb-5">
                 <div class="row">
-                    <div class="card order-list ms-5" style="width: 100vw">
+                    <div class="card order-list" style="width: 75vw; margin-left: 12vw">
                         <div class="card-header">
                             <div class="d-flex justify-content-between">
-                                <span class="text-muted">#OrderID:
-                            <asp:Label ID="lblOrderID" runat="server" Text='<%# Eval("OrderId") %>'></asp:Label></span>
+                                <span class="text-muted order-fontsize">#OrderID:
+                            <asp:Label ID="lblOrderID" runat="server" CssClass="order-fontsize" Text='<%# Eval("OrderId") %>'></asp:Label></span>
                                 <span class="text-muted">
-                                    <asp:Label ID="lblOrderDate" runat="server" Text='<%# Eval("OrderDate") %>'></asp:Label></span>
+                                    <asp:Label ID="lblOrderDate" runat="server" CssClass="order-fontsize" Text='<%# Eval("OrderDate") %>'></asp:Label></span>
                             </div>
                         </div>
                         <asp:DataList ID="dlSingleOrder" runat="server">
@@ -147,9 +152,9 @@
                                         <div class="col-md-3">
                                             <h5 class="card-title">
                                                 <asp:Label ID="lblProductName" runat="server" Text='<%# Eval("ProductName") %>'></asp:Label></h5>
-                                            <p class="card-text">
+                                            <p class="card-text order-fontsize">
                                                 Price:
-                                        <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("ProductPrice") %>'></asp:Label>
+                                        <asp:Label ID="lblPrice" runat="server" CssClass="order-fontsize" Text='<%# Eval("ProductPrice") %>'></asp:Label>
                                             </p>
                                         </div>
                                     </div>
@@ -159,18 +164,23 @@
                         <div class="card-footer">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <p class="text-muted">
+                                    <p class="text-muted order-fontsize">
                                         Total Price:
-                                <asp:Label ID="lblTotalPrice" runat="server" Text='<%# Eval("MaxOrderTotal") %>'></asp:Label>
+                                <asp:Label ID="lblTotalPrice" runat="server" CssClass="order-fontsize" Text='<%# Eval("MaxOrderTotal") %>'></asp:Label>
                                     </p>
-                                    <p class="text-muted">
+                                    <p class="text-muted order-fontsize">
                                         Payment Mode:
-                                <asp:Label ID="lblPaymentMode" runat="server" Text='<%# Eval("PaymentMode") %>'></asp:Label>
+                                <asp:Label ID="lblPaymentMode" runat="server" CssClass="order-fontsize" Text='<%# Eval("PaymentMode") %>'></asp:Label>
                                     </p>
                                 </div>
                                 <div>
-                                    <p class="text-muted">
-                                        <asp:Label ID="lblAddress" runat="server" Text='<%# Eval("BillingAddress") %>'></asp:Label>
+                                    <p class="text-muted order-fontsize">
+                                        Customer Name : 
+                                        <asp:Label ID="lblPersonName" CssClass="order-fontsize" runat="server" Text='<%# Eval("PersonName") %>'></asp:Label>
+                                    </p>
+                                    <p class="text-muted order-fontsize">
+                                        Customer Address :
+                                        <asp:Label ID="lblAddress" CssClass="order-fontsize" runat="server" Text='<%# Eval("BillingAddress") %>'></asp:Label>
                                     </p>
                                 </div>
                             </div>

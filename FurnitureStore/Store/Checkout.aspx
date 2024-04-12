@@ -6,22 +6,15 @@
 
 
     <!-- Start Hero Section -->
-    <div class="hero">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-5">
-                    <div class="intro-excerpt">
-                        <h1>Checkout</h1>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                </div>
-            </div>
+
+    <div class="container mt-4">
+        <div class="intro-excerpt">
+            <h1>Checkout</h1>
         </div>
     </div>
     <!-- End Hero Section -->
 
-    <div class="untree_co-section">
+    <div class="untree_co-section" style="margin-top:-10vh">
         <div class="container">
 
             <div class="row">
@@ -108,10 +101,10 @@
                                             <div class="row">
                                                 <div class="col table">
                                                     <tr>
-                                                        <td>
-                                                            <img class="img-fluid rounded" src="../<%#Eval("ProductImage") %>" />
+                                                        <td class="w-25" align="center">
+                                                            <img class="img-fluid rounded w-50" src="../<%#Eval("ProductImage") %>" />
                                                         </td>
-                                                        <td class="w-75"><%#Eval("ProductName") %> <strong class="mx-2">x</strong> 1</td>
+                                                        <td class="w-50" align="center"><%#Eval("ProductName") %> <strong class="mx-2">x</strong> 1</td>
                                                         <td><%#Eval("Price") %></td>
                                                     </tr>
                                                 </div>
@@ -126,13 +119,15 @@
 
                                         <tr>
                                             <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                                            <td><asp:Label ID="lblCartTotal" Csslass="text-black" runat="server"></asp:Label></td>
-<%--                                            <td >$350.00</td>--%>
+                                            <td>
+                                                <asp:Label ID="lblCartTotal" Csslass="text-black" runat="server"></asp:Label></td>
+                                            <%--                                            <td >$350.00</td>--%>
                                         </tr>
                                         <tr>
                                             <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                                            <td><asp:Label ID="lblTotal" CssClass="text-black font-weight-bold" runat="server"></asp:Label></td>
-<%--                                            <td ><strong>$350.00</strong></td>--%>
+                                            <td>
+                                                <asp:Label ID="lblTotal" CssClass="text-black font-weight-bold" runat="server"></asp:Label></td>
+                                            <%--                                            <td ><strong>$350.00</strong></td>--%>
                                         </tr>
                                     </tbody>
                                 </table>
