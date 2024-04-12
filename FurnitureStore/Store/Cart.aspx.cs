@@ -53,6 +53,7 @@ namespace FurnitureStore.Store
 			{
 				Response.Write("<h2>No Items In the Cart</h2>");
 			}
+			con.Close();
 		}
 
 		// it gets the total of all products in cart
