@@ -5,6 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
+    <style>
+        lb-addcart {
+            cursor: pointer;
+        }
+    </style>
+
 
     <%--    <!-- Start Hero Section -->
     <div class="hero">
@@ -32,15 +38,14 @@
                         <!-- Start Column 1 -->
                         <div class="col-12 col-md-4 col-lg-10 mb-5 align-content-lg-center">
                             <%-- changes : from col-lg-3 to col-lg-10 --%>
-                            <a class="product-item" href="#">
-                                <img src="../<%#(Eval("ProductImage")) %>" class="img-fluid product-thumbnail">
+                            <a class="product-item" href="#" style="height: 220px">
+                                <img src="../<%#(Eval("ProductImage")) %>" class="img-fluid product-thumbnail" style="height: 100px">
                                 <h3 class="product-title"><%#Eval("ProductName") %></h3>
                                 <strong class="product-price"><%#Eval("ProductPrice") %></strong>
-                                <span class="icon-cross">
-                                    <img src="../Assets/images/cross.svg" class="img-fluid">
-                                    <asp:LinkButton CssClass="text-center" ID="lbAddToCart" runat="server" OnClick="lbAddToCart_Click" CommandArgument='<%#Eval("ProductId") %>'>Add to Cart</asp:LinkButton>
-                                </span>
                             </a>
+                            <span style="margin-left: 30%; text-decoration: none">
+                                <asp:LinkButton CssClass="lb-addcart link-info bordered fs-6" ID="lbAddToCart" runat="server" OnClick="lbAddToCart_Click" CommandArgument='<%#Eval("ProductId") %>'>Add to Cart</asp:LinkButton>
+                            </span>
                         </div>
                         <!-- End Column 1 -->
                     </ItemTemplate>
